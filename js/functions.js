@@ -1,3 +1,4 @@
 function openQuizPage(){
-    window.location.href="https://ricardojcardoso.github.io/quiz.html"
+    console.log("here");
+    window.location.href="https://ricardojcardoso.github.io/quiz.html";
 }
