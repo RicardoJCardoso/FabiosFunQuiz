@@ -18,14 +18,61 @@
             <div class="row pt-5">
                 <div class="col"></div>
                 <div class="col">
-                    <form>
+                    <div class="nameForm" id="formID">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Enter your name</label>
                             <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp">
                         </div>
-                        <button type="submit" class="btn btn-primary" onclick="openQuizPage()">Submit</button>
-                    </form>
+                        <button type="submit" class="btn btn-primary" onclick="showQuiz()">Submit</button>
+                    </div>
+                    <div class="quiz d-none" id="quizID">
+                        <div id="question1">
+                            <h2>Question 1</h2>
+                            <p>Select the correct answer:</p>
+                            <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" name="q1" value="A"> Option A
+                            </div>
+                            <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" name="q1" value="B"> Option B
+                            </div>
+                            <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" name="q1" value="C"> Option C
+                            </div>
+                            <button onclick="checkAnswer('q1')" class="btn btn-secondary">Next</button>
+                        </div>
+
+                        <div id="question2" class="d-none">
+                            <h2>Question 2</h2>
+                            <p>Select the correct answer:</p>
+                            <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" name="q2" value="A"> Option A
+                            </div>
+                            <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" name="q2" value="B"> Option B
+                            </div>
+                            <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" name="q2" value="C"> Option C
+                            </div>
+                            <button onclick="checkAnswer('q2')" class="btn btn-secondary">Next</button>
+                        </div>
+
+                        <div id="question3" class="d-none">
+                            <h2>Question 3</h2>
+                            <p>Select the correct answer:</p>
+                            <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" name="q3" value="A"> Option A
+                            </div>
+                            <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" name="q3" value="B"> Option B
+                            </div>
+                            <div class="input-group-text">
+                                <input type="radio" aria-label="Radio button for following text input" name="q3" value="C"> Option C
+                            </div>
+                            </ul>
+                            <button onclick="checkAnswer('q3')" class="btn btn-success">Submit</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="col"></div>
             </div>
