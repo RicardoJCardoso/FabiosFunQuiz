@@ -1,8 +1,9 @@
 disabledAnswers = [];
+readJson();
 
-function showQuiz(){
+function showQuiz() {
     document.getElementById('formID').classList.add('d-none');
-    document.getElementById('quizID').classList.remove('d-none');   
+    document.getElementById('quizID').classList.remove('d-none');
 }
 
 function checkAnswer(questionId) {
@@ -54,4 +55,21 @@ function disableSelectedAnswer(questionId, selectedAnswer) {
             }
         }
     }
+}
+
+function readJson() {
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    const dataUrl = 'https://example.com/data.json';
+
+
+    fetch(proxyUrl + dataUrl)
+        .then(response => response.json())
+        .then(data => {
+            // 'data' contains the parsed JSON data
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error fetching JSON:', error);
+        });
+
 }
