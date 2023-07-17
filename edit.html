@@ -10,11 +10,38 @@
 <body>
     <div class="container-fluid p-5">
         <div class="container text-center">
-            <div>
-                
+            <div class="row pb-5">
+                <div class="col">
+                    <h1>Fabio's Fun Quiz</h1>
+                </div>
+            </div>
+            <div class="list-group">
+                <h3 class="pb-3">Questions</h3>
+                <div class="pb-2">
+                    <input type="text" id="newItemInput" placeholder="Enter new item">
+                    <button class="btn btn-primary" onclick="addItem()">Add Item</button>
+                </div>
+                <div id="editableList">
+                </div>
+            </div>
+            <div class="list-group">
+                <h3 class="pt-5 pb-3">Answers</h3>
+                <div class="pb-2">
+                    <input type="text" id="newItemInputAnswer" placeholder="Enter new item">
+                    <button class="btn btn-primary" onclick="addItemAnswer()">Add Item</button>
+                </div>
+                <div id="editableListAnswer">
+                </div>
             </div>
         </div>
     </div>
+
+    <!-- Firebase JavaScript SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script> <!-- For Realtime Database -->
+    <!-- OR -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script> <!-- For Firestore -->
+
     <script src="js/functions.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"

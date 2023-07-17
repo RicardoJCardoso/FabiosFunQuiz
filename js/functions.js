@@ -1,5 +1,178 @@
 disabledAnswers = [];
-readJson();
+Questions = {}
+Answers = {}
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAUY6f4vJkgxrsgfXnUq23-xvPvkmJ5tJs",
+    authDomain: "quiz-91687.firebaseapp.com",
+    databaseURL: "https://quiz-91687-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "quiz-91687",
+    storageBucket: "quiz-91687.appspot.com",
+    messagingSenderId: "560153117646",
+    appId: "1:560153117646:web:a7b83cf3e66642070be19f",
+    measurementId: "G-HXKJLJ8E8V"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+const database = firebase.database();
+
+
+//writeQuestions();
+readQuestions();
+readAnswers();
+
+function writeQuestions() {
+    // Write data to the database
+    database.ref('Questions').set({
+        "1" : 'What is your favorite Color?',
+    });
+}
+
+function readQuestions() {
+    // Read data from the database
+    const editableList = document.getElementById('editableList');
+    const newItemInput = document.getElementById('newItemInput');
+    const newItemText = newItemInput.value.trim();
+
+
+    database.ref('Questions').once('value')
+        .then(snapshot => {
+            const data = snapshot.val();
+            Questions = data;
+            console.log(data);
+            data.forEach(element => {
+                console.log(element);
+                const editableList = document.getElementById('editableList');
+                const a = document.createElement('a');
+                a.className = "list-group-item list-group-item-action pt-2"
+                a.innerHTML = `<span>${element}</span> 
+                    <button class="btn btn-primary" onclick="removeItem(this)">Remove</button>`;
+                editableList.appendChild(a);
+                newItemInput.value = '';
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+
+
+}
+
+function readAnswers() {
+    // Read data from the database
+    const editableList = document.getElementById('editableListAnswer');
+    const newItemInput = document.getElementById('newItemInputAnswer');
+    const newItemText = newItemInput.value.trim();
+
+
+    database.ref('Answers').once('value')
+        .then(snapshot => {
+            const data = snapshot.val();
+            console.log(data)
+            Answers = data;
+            data.forEach(element => {
+                console.log(element);
+                const editableList = document.getElementById('editableListAnswer');
+                const a = document.createElement('a');
+                a.className = "list-group-item list-group-item-action pt-2"
+                a.innerHTML = `<span>${element}</span> 
+                    <button class="btn btn-primary" onclick="removeItemAnswer(this)">Remove</button>`;
+                editableList.appendChild(a);
+                newItemInput.value = '';            
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+
+
+}
+
+// Function to add a new item to the list
+function addItem() {
+    const newItemInput = document.getElementById('newItemInput');
+    const newItemText = newItemInput.value.trim();
+
+    if (newItemText === '') {
+        alert('Please enter a valid item.');
+        return;
+    }
+
+    const editableList = document.getElementById('editableList');
+    const a = document.createElement('a');
+    a.className = "list-group-item list-group-item-action pt-2"
+    a.innerHTML = `<span>${newItemText}</span> 
+                    <button class="btn btn-primary" onclick="removeItem(this)">Remove</button>`;
+    editableList.appendChild(a);
+    newItemInput.value = '';
+    if(Questions === null){
+        Questions = {}
+        Questions[0] = newItemText;
+    }else{
+        console.log(Questions.length);
+        var count = Object.keys(Questions).length;
+        Questions[count] = newItemText;
+    }
+    
+    database.ref().update({
+        Questions
+    });
+}
+
+
+// Function to remove an item from the list
+function removeItem(removeButton) {
+    const li = removeButton.parentElement;
+    console.log(li);
+    delete Questions[li.id];
+
+    console.log(Questions);
+    database.ref().update({
+        Questions
+    });
+    li.remove();
+}
+
+// Function to add a new item to the list
+function addItemAnswer() {
+    const newItemInput = document.getElementById('newItemInputAnswer');
+    const newItemText = newItemInput.value.trim();
+
+    if (newItemText === '') {
+        alert('Please enter a valid item.');
+        return;
+    }
+
+    const editableList = document.getElementById('editableListAnswer');
+    const a = document.createElement('a');
+    a.className = "list-group-item list-group-item-action pt-2"
+    a.innerHTML = `<span>${newItemText}</span> 
+                    <button class="btn btn-primary" onclick="removeItemAnswer(this)">Remove</button>`;
+    editableList.appendChild(a);
+    newItemInput.value = '';
+    if(Answers === null){
+        Answers = {}
+        Answers[0] = newItemText;
+    }else{
+        console.log(Answers.length);
+        var count = Object.keys(Answers).length;
+        Answers[count] = newItemText;
+    }
+    
+    database.ref().update({
+        Answers
+    });
+}
+
+// Function to remove an item from the list
+function removeItemAnswer(removeButton) {
+    const li = removeButton.parentElement;
+    li.remove();
+}
+
+
 
 function showQuiz() {
     document.getElementById('formID').classList.add('d-none');
@@ -55,21 +228,4 @@ function disableSelectedAnswer(questionId, selectedAnswer) {
             }
         }
     }
-}
-
-function readJson() {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    const dataUrl = 'https://example.com/data.json';
-
-
-    fetch(proxyUrl + dataUrl)
-        .then(response => response.json())
-        .then(data => {
-            // 'data' contains the parsed JSON data
-            console.log(data);
-        })
-        .catch(error => {
-            console.error('Error fetching JSON:', error);
-        });
-
 }
