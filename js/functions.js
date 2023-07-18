@@ -41,9 +41,7 @@ function readQuestions() {
         .then(snapshot => {
             const data = snapshot.val();
             Questions = data;
-            console.log(data);
             data.forEach(element => {
-                console.log(element);
                 const editableList = document.getElementById('editableList');
                 const a = document.createElement('a');
                 a.className = "list-group-item list-group-item-action pt-2"
@@ -70,10 +68,8 @@ function readAnswers() {
     database.ref('Answers').once('value')
         .then(snapshot => {
             const data = snapshot.val();
-            console.log(data)
             Answers = data;
             data.forEach(element => {
-                console.log(element);
                 const editableList = document.getElementById('editableListAnswer');
                 const a = document.createElement('a');
                 a.className = "list-group-item list-group-item-action pt-2"
@@ -111,7 +107,7 @@ function addItem() {
         Questions = {}
         Questions[0] = newItemText;
     }else{
-        console.log(Questions.length);
+        
         var count = Object.keys(Questions).length;
         Questions[count] = newItemText;
     }
@@ -124,14 +120,18 @@ function addItem() {
 
 // Function to remove an item from the list
 function removeItem(removeButton) {
-    const li = removeButton.parentElement;
-    console.log(li);
-    delete Questions[li.id];
 
-    console.log(Questions);
+    const li = removeButton.parentElement;
+    let value= li.querySelector('span').textContent;
+
+    const index = Questions.findIndex((element) => element === value);
+
+    Questions.splice(index,1)
+
     database.ref().update({
         Questions
     });
+
     li.remove();
 }
 
@@ -156,7 +156,7 @@ function addItemAnswer() {
         Answers = {}
         Answers[0] = newItemText;
     }else{
-        console.log(Answers.length);
+        
         var count = Object.keys(Answers).length;
         Answers[count] = newItemText;
     }
@@ -164,12 +164,26 @@ function addItemAnswer() {
     database.ref().update({
         Answers
     });
+
+
 }
 
 // Function to remove an item from the list
 function removeItemAnswer(removeButton) {
     const li = removeButton.parentElement;
+    let value= li.querySelector('span').textContent;
+
+    const index = Answers.findIndex((element) => element === value);
+
+    Answers.splice(index,1)
+
+    database.ref().update({
+        Answers
+    });
+
     li.remove();
+
+
 }
 
 
@@ -209,7 +223,7 @@ function checkAnswer(questionId) {
                 q3: document.querySelector('input[name="q3"]:checked').value
             };
 
-            console.log(selectedAnswers);
+            
         }
     } else {
         alert('Please select an answer.');
