@@ -201,8 +201,6 @@ function removeItemAnswer(removeButton) {
 
 
 function showQuiz() {
-    AuthorName = document.getElementById('exampleInputEmail1').textContent;
-    console.log(document.getElementById('exampleInputEmail1'));
     document.getElementById('formID').classList.add('d-none');
     document.getElementById('quizID').classList.remove('d-none');
 }
@@ -280,8 +278,8 @@ function checkAnswer(questionId) {
             var q9 = document.getElementById('question9').getElementsByTagName('h2')[0].outerText;
             var q10 = document.getElementById('question10').getElementsByTagName('h2')[0].outerText;
 
+
             var selectedAnswers = {
-                Teste : {
                     [q1]: document.querySelector('input[name="q1"]:checked').value,
                     [q2]: document.querySelector('input[name="q2"]:checked').value,
                     [q3]: document.querySelector('input[name="q3"]:checked').value,
@@ -292,7 +290,6 @@ function checkAnswer(questionId) {
                     [q8]: document.querySelector('input[name="q8"]:checked').value,
                     [q9]: document.querySelector('input[name="q9"]:checked').value,
                     [q10]: document.querySelector('input[name="q10"]:checked').value
-                }
             };
   
             console.log(selectedAnswers);
@@ -526,9 +523,18 @@ function addQuestionHTML(question, qID) {
 }
 
 function submitAnswers(selectedAnswers){
+    var name = document.getElementById('exampleInputEmail1').value;
+    console.log(name);
+    const customName = name;
+    const ref = database.ref(customName);
 
-    database.ref().update({
-        selectedAnswers
+    ref.set(selectedAnswers)
+    .then(() => {
+      console.log("Data sent successfully!");
+      alert('Quiz submited!');
+    })
+    .catch((error) => {
+      console.error("Error sending data:", error);
     });
 
 }
