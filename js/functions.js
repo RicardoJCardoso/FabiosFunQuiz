@@ -261,9 +261,50 @@ function checkAnswer(questionId) {
             document.getElementById('question9').classList.add('d-none');
             document.getElementById('question10').classList.remove('d-none');
             
+        }  else if (questionId === 'q10') {
+            disableSelectedAnswer('q11', selectedAnswer);
+            document.getElementById('question10').classList.add('d-none');
+            document.getElementById('question11').classList.remove('d-none');
+            
         } 
-        else if (questionId === 'q10') {
-            disableSelectedAnswer('q10', selectedAnswer);
+        else if (questionId === 'q11') {
+            disableSelectedAnswer('q12', selectedAnswer);
+            document.getElementById('question11').classList.add('d-none');
+            document.getElementById('question12').classList.remove('d-none');
+            
+        } 
+        else if (questionId === 'q12') {
+            disableSelectedAnswer('q13', selectedAnswer);
+            document.getElementById('question12').classList.add('d-none');
+            document.getElementById('question13').classList.remove('d-none');
+            
+        } 
+        else if (questionId === 'q13') {
+            disableSelectedAnswer('q14', selectedAnswer);
+            document.getElementById('question13').classList.add('d-none');
+            document.getElementById('question14').classList.remove('d-none');
+            
+        } 
+
+        else if (questionId === 'q14') {
+            disableSelectedAnswer('q15', selectedAnswer);
+            document.getElementById('question14').classList.add('d-none');
+            document.getElementById('question15').classList.remove('d-none');
+        } 
+        else if (questionId === 'q15') {
+            disableSelectedAnswer('q16', selectedAnswer);
+            document.getElementById('question15').classList.add('d-none');
+            document.getElementById('question16').classList.remove('d-none');
+            
+        } 
+        else if (questionId === 'q16') {
+            disableSelectedAnswer('q17', selectedAnswer);
+            document.getElementById('question16').classList.add('d-none');
+            document.getElementById('question17').classList.remove('d-none');
+            
+        } 
+        else if (questionId === 'q17') {
+            disableSelectedAnswer('q17', selectedAnswer);
             // Perform final calculations or show results
             // For now, let's just display the selected answers
 
@@ -277,6 +318,13 @@ function checkAnswer(questionId) {
             var q8 = document.getElementById('question8').getElementsByTagName('h2')[0].outerText;
             var q9 = document.getElementById('question9').getElementsByTagName('h2')[0].outerText;
             var q10 = document.getElementById('question10').getElementsByTagName('h2')[0].outerText;
+            var q11 = document.getElementById('question11').getElementsByTagName('h2')[0].outerText;
+            var q12 = document.getElementById('question12').getElementsByTagName('h2')[0].outerText;
+            var q13 = document.getElementById('question13').getElementsByTagName('h2')[0].outerText;
+            var q14 = document.getElementById('question14').getElementsByTagName('h2')[0].outerText;
+            var q15 = document.getElementById('question15').getElementsByTagName('h2')[0].outerText;
+            var q16 = document.getElementById('question16').getElementsByTagName('h2')[0].outerText;
+            var q17 = document.getElementById('question17').getElementsByTagName('h2')[0].outerText;
 
 
             var selectedAnswers = {
@@ -289,7 +337,14 @@ function checkAnswer(questionId) {
                     [q7]: document.querySelector('input[name="q7"]:checked').value,
                     [q8]: document.querySelector('input[name="q8"]:checked').value,
                     [q9]: document.querySelector('input[name="q9"]:checked').value,
-                    [q10]: document.querySelector('input[name="q10"]:checked').value
+                    [q10]: document.querySelector('input[name="q10"]:checked').value,
+                    [q11]: document.querySelector('input[name="q11"]:checked').value,
+                    [q12]: document.querySelector('input[name="q12"]:checked').value,
+                    [q13]: document.querySelector('input[name="q13"]:checked').value,
+                    [q14]: document.querySelector('input[name="q14"]:checked').value,
+                    [q15]: document.querySelector('input[name="q15"]:checked').value,
+                    [q16]: document.querySelector('input[name="q16"]:checked').value,
+                    [q17]: document.querySelector('input[name="q17"]:checked').value
             };
   
             console.log(selectedAnswers);
@@ -346,7 +401,7 @@ function loadQuestionsQ() {
         .then(snapshot => {
             const data = snapshot.val();
             questions = data;
-            let numbers = generateNonRepeatingRandomNumbers(10, 0, 9);
+            let numbers = generateNonRepeatingRandomNumbers(17, 0, 16);
             let count = 1;
             numbers.forEach(element => {
                 addQuestionHTML(data[element],count);
@@ -415,10 +470,38 @@ function addQuestionHTML(question, qID) {
                '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
                '        value="' + anwswers[9] + '">' + anwswers[9] +
                '</div>' +
+               '<div class="input-group-text">' +
+               '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+               'value="' + anwswers[10] + '">'+ anwswers[0] +
+               '</div>' +
+               '<div class="input-group-text">' +
+               '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+               '        value="' + anwswers[11] + '">' + anwswers[1]  +
+               '</div>' +
+               '<div class="input-group-text">' +
+               '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+               '        value="' + anwswers[12] + '">' + anwswers[2] +
+               '</div>' +
+               '<div class="input-group-text">' +
+               '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+               '        value="' + anwswers[13] + '">' + anwswers[3] +
+               '</div>' +
+               '<div class="input-group-text">' +
+               '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+               '        value="' + anwswers[14] + '">' + anwswers[4] +
+               '</div>' +
+               '<div class="input-group-text">' +
+               '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+               '        value="' + anwswers[15] + '">' + anwswers[5] +
+               '</div>' +
+               '<div class="input-group-text">' +
+               '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+               '        value="' + anwswers[16] + '">' + anwswers[6] +
+               '</div>' +
                '<button onclick="checkAnswer(\'q1\')" class="btn btn-secondary">Next</button>' +
                '</div>';
    
-       }else if(qID === 10){
+       }else if(qID === 17){
            div = '<div id="question'+ qID + '" class="d-none"> ' +
            '<h2>' + question + '</h2> ' +
            '<p>Select the correct answer:</p>' +
@@ -462,6 +545,34 @@ function addQuestionHTML(question, qID) {
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
            '        value="' + anwswers[9] + '">' + anwswers[9] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           'value="' + anwswers[10] + '">'+ anwswers[0] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[11] + '">' + anwswers[1]  +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[12] + '">' + anwswers[2] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[13] + '">' + anwswers[3] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[14] + '">' + anwswers[4] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[15] + '">' + anwswers[5] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[16] + '">' + anwswers[6] +
            '</div>' +
            '<button onclick="checkAnswer(\'q'+ qID +'\')" class="btn btn-success">Submit</button>' + 
            '</div>';
@@ -509,6 +620,34 @@ function addQuestionHTML(question, qID) {
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
            '        value="' + anwswers[9] + '">' + anwswers[9] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           'value="' + anwswers[10] + '">'+ anwswers[0] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[11] + '">' + anwswers[1]  +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[12] + '">' + anwswers[2] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[13] + '">' + anwswers[3] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[14] + '">' + anwswers[4] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[15] + '">' + anwswers[5] +
+           '</div>' +
+           '<div class="input-group-text">' +
+           '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
+           '        value="' + anwswers[16] + '">' + anwswers[6] +
            '</div>' +
            '<button onclick="checkAnswer(\'q'+ qID +'\')" class="btn btn-secondary">Next</button>' +
            '</div>';
