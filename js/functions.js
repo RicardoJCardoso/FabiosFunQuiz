@@ -424,6 +424,7 @@ function addQuestionHTML(question, qID) {
     .then(snapshot => {
         const data = snapshot.val();
         anwswers = data;
+        console.log(anwswers);
 
         if (qID === 1) {
             div = '<div id="question' + qID +'"> ' +
@@ -472,31 +473,31 @@ function addQuestionHTML(question, qID) {
                '</div>' +
                '<div class="input-group-text">' +
                '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-               'value="' + anwswers[10] + '">'+ anwswers[0] +
+               'value="' + anwswers[10] + '">'+ anwswers[10] +
                '</div>' +
                '<div class="input-group-text">' +
                '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-               '        value="' + anwswers[11] + '">' + anwswers[1]  +
+               '        value="' + anwswers[11] + '">' + anwswers[11]  +
                '</div>' +
                '<div class="input-group-text">' +
                '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-               '        value="' + anwswers[12] + '">' + anwswers[2] +
+               '        value="' + anwswers[12] + '">' + anwswers[12] +
                '</div>' +
                '<div class="input-group-text">' +
                '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-               '        value="' + anwswers[13] + '">' + anwswers[3] +
+               '        value="' + anwswers[13] + '">' + anwswers[13] +
                '</div>' +
                '<div class="input-group-text">' +
                '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-               '        value="' + anwswers[14] + '">' + anwswers[4] +
+               '        value="' + anwswers[14] + '">' + anwswers[14] +
                '</div>' +
                '<div class="input-group-text">' +
                '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-               '        value="' + anwswers[15] + '">' + anwswers[5] +
+               '        value="' + anwswers[15] + '">' + anwswers[15] +
                '</div>' +
                '<div class="input-group-text">' +
                '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-               '        value="' + anwswers[16] + '">' + anwswers[6] +
+               '        value="' + anwswers[16] + '">' + anwswers[16] +
                '</div>' +
                '<button onclick="checkAnswer(\'q1\')" class="btn btn-secondary">Next</button>' +
                '</div>';
@@ -548,31 +549,31 @@ function addQuestionHTML(question, qID) {
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           'value="' + anwswers[10] + '">'+ anwswers[0] +
+           'value="' + anwswers[10] + '">'+ anwswers[10] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[11] + '">' + anwswers[1]  +
+           '        value="' + anwswers[11] + '">' + anwswers[11]  +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[12] + '">' + anwswers[2] +
+           '        value="' + anwswers[12] + '">' + anwswers[12] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[13] + '">' + anwswers[3] +
+           '        value="' + anwswers[13] + '">' + anwswers[13] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[14] + '">' + anwswers[4] +
+           '        value="' + anwswers[14] + '">' + anwswers[14] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[15] + '">' + anwswers[5] +
+           '        value="' + anwswers[15] + '">' + anwswers[15] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[16] + '">' + anwswers[6] +
+           '        value="' + anwswers[16] + '">' + anwswers[16] +
            '</div>' +
            '<button onclick="checkAnswer(\'q'+ qID +'\')" class="btn btn-success">Submit</button>' + 
            '</div>';
@@ -623,31 +624,31 @@ function addQuestionHTML(question, qID) {
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           'value="' + anwswers[10] + '">'+ anwswers[0] +
+           'value="' + anwswers[10] + '">'+ anwswers[10] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[11] + '">' + anwswers[1]  +
+           '        value="' + anwswers[11] + '">' + anwswers[11]  +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[12] + '">' + anwswers[2] +
+           '        value="' + anwswers[12] + '">' + anwswers[12] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[13] + '">' + anwswers[3] +
+           '        value="' + anwswers[13] + '">' + anwswers[13] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[14] + '">' + anwswers[4] +
+           '        value="' + anwswers[14] + '">' + anwswers[14] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[15] + '">' + anwswers[5] +
+           '        value="' + anwswers[15] + '">' + anwswers[15] +
            '</div>' +
            '<div class="input-group-text">' +
            '    <input type="radio" aria-label="Radio button for following text input" name="q' + qID +'"' +
-           '        value="' + anwswers[16] + '">' + anwswers[6] +
+           '        value="' + anwswers[16] + '">' + anwswers[16] +
            '</div>' +
            '<button onclick="checkAnswer(\'q'+ qID +'\')" class="btn btn-secondary">Next</button>' +
            '</div>';
